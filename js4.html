@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Analysis</title>
+</head>
+<body>
+    <h2>String Analysis</h2>
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button onclick="analyseString()">Analyze</button>
+    <div id="result"></div>
+
+    <script>
+        function analyseString() {
+            let inputString = document.getElementById("inputString").value;
+            let result = {
+                length: inputString.length,
+                lowercase: inputString.toLowerCase(),
+                uppercase: inputString.toUpperCase(),
+                containsJavaScript: inputString.toLowerCase().includes("javascript"),
+                countOfA: inputString.toLowerCase().split('a').length - 1
+            };
+
+            let resultHtml = `
+                <h3>Analysis Result:</h3>
+                <p><strong>Length:</strong> ${result.length}</p>
+                <p><strong>Lowercase:</strong> ${result.lowercase}</p>
+                <p><strong>Uppercase:</strong> ${result.uppercase}</p>
+                <p><strong>Contains JavaScript:</strong> ${result.containsJavaScript}</p>
+                <p><strong>Count of 'A':</strong> ${result.countOfA}</p>
+            `;
+
+            document.getElementById("result").innerHTML = resultHtml;
+        }
+    </script>
+</body>
+</html>
